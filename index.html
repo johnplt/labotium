@@ -267,32 +267,28 @@
             transition: var(--transition);
         }
 
-        /* ADAPTATION MOBILE */
+        /* ADAPTATION MOBILE : AFFICHAGE SUR PLUSIEURS LIGNES */
         @media (max-width: 768px) {
-            .burger-btn {
-                display: flex; /* Afficher le bouton burger sur mobile */
+            .nav-container {
+                padding: 0.8rem 1rem;
+                flex-direction: column; /* Empile le logo et le menu verticalement */
+                gap: 0.8rem;
+                align-items: center;
+            }
+
+            .logo-area {
+                margin-bottom: 0.2rem;
             }
 
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%; /* Caché hors de l'écran par défaut */
-                width: 75%;
-                max-width: 300px;
-                height: 100vh;
-                background-color: var(--beige-nude);
-                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-                flex-direction: column;
+                display: flex;
+                flex-wrap: wrap; /* Permet aux liens de passer à la ligne suivante si besoin */
                 justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                padding: 2rem;
-                transition: right 0.4s ease;
+                gap: 0.6rem 1rem; /* Espacement vertical et horizontal entre les liens */
             }
 
-            /* Quand le menu est ouvert */
-            .nav-links.active {
-                right: 0;
+            .nav-links a {
+                font-size: 0.85rem;
             }
         }
 
@@ -419,23 +415,14 @@
 </head>
 <body>
 
-    <!-- EN-TÊTE AVEC MENU MOBILE BURGER -->
+    <!-- EN-TÊTE AVEC CATÉGORIES SUR PLUSIEURS LIGNES SUR MOBILE -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo-area">
                 <img src="logo.png" alt="Logo Ô Lab'Ôtium" class="logo-img" onerror="this.style.display='none'">
                 <span class="brand-name">Ô Lab'Ôtium</span>
             </a>
-
-            <!-- BOUTON BURGER (VISIBLE SUR MOBILE) -->
-            <button class="burger-btn" id="burgerBtn" aria-label="Ouvrir le menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- LIENS DU MENU -->
-            <ul class="nav-links" id="navLinks">
+            <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À Propos</a></li>
                 <li><a href="#accompagnements">Accompagnements</a></li>
@@ -692,6 +679,6 @@
             sections.forEach((section) => observer.observe(section));
         });
     </script>
-    
+
 </body>
 </html>
