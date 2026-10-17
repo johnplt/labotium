@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ô Lab'Ôtium - Naturopathie & Neuro-Nutrition</title>
+    <meta name="description" content="Naturopathie fonctionnelle, neuro-nutrition et gestion du stress à Savigneux et Montbrison. L'écoute du corps, le chemin vers la vitalité.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sage-green: #5B7B6E;
+            --sage-dark: #40574D;
+            --beige-nude: #F7F4EF;
+            --beige-card: #EFECE6;
+            --old-rose: #A88596;
+            --text-dark: #2C3531;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--beige-nude);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(247, 244, 239, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--sage-green);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--sage-green);
+        }
+
+        .cta-btn {
+            background-color: var(--sage-green);
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--sage-dark);
+            transform: translateY(-1px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(168,133,150,0.08), rgba(91,123,110,0.05));
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--sage-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p.slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--old-rose);
+            margin-bottom: 2rem;
+        }
+
+        .hero-intro {
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+            color: #4A5550;
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--sage-dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--old-rose);
+            margin: 0.8rem auto 0;
+        }
+
+        /* PILIERS / SERVICES CARDS */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            border-top: 4px solid var(--sage-green);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--sage-dark);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* A PROPOS */
+        .about-content {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--sage-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: #4A5550;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-item {
+            background-color: var(--beige-nude);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .philosophy-item h4 {
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* TARIFS & INFOS */
+        .tarifs-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .tarifs-container {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* Simplifié pour mobile, peut être enrichi d'un menu burger */
+            }
+        }
+
+        .tarif-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .tarif-card h3 {
+            color: var(--sage-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            background-color: var(--beige-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--old-rose);
+        }
+
+        .info-box h3 {
+            color: var(--sage-dark);
+            margin-bottom: 1rem;
+        }
+
+        /* CONTACT & MODALITÉS */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .contact-info ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-info strong {
+            color: var(--sage-dark);
+        }
+
+        .schedule-table {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-collapse: collapse;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .schedule-table th {
+            color: var(--sage-dark);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--sage-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+        /* STYLE DU LIEN DE MENU ACTIF */
+        .nav-links a.active {
+            color: var(--sage-green);
+            font-weight: 600;
+            border-bottom: 2px solid var(--old-rose);
+            padding-bottom: 4px;
+        }
+
+        /* INDICATEUR DE DÉFILEMENT (FLECHE) */
+        .scroll-indicator {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.85;
+        }
+
+        .scroll-indicator p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--sage-dark);
+        }
+
+        .scroll-arrow {
+            font-size: 1.5rem;
+            color: var(--sage-green);
+            text-decoration: none;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-area">
+                <img src="logo.png" alt="Logo Ô Lab'Ôtium" class="logo-img" onerror="this.style.display='none'">
+                <span class="brand-name">Ô Lab'Ôtium</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À Propos</a></li>
+                <li><a href="#accompagnements">Accompagnements</a></li>
+                <li><a href="#tarifs">Tarifs & Infos</a></li>
+                <li><a href="#contact" class="cta-btn">Prendre rendez-vous</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 1. PAGE D'ACCUEIL -->
+    <section id="accueil" class="hero">
+        <h1>Ô Lab'Ôtium - Naturopathie & Neuro-Nutrition</h1>
+        <p class="slogan">&lt;&lt;&lt; L'écoute du corps, le chemin vers la vitalité &gt;&gt;&gt;</p>
+        <div class="hero-intro">
+            <p><strong>Bienvenue chez Ô Lab'Ôtium. </strong></p> 
+            <p>Je suis Magali PLATON, praticienne en naturopathie fonctionnelle et spécialisée en neuro-nutrition et micro-nutrition. Mon approche combine l'écoute attentive de votre histoire, la compréhension de votre biologie et l'application de principes naturels pour restaurer votre vitalité durablement.</p>
+        </div>
+        <!-- INDICATEUR DE DÉFILEMENT (SANS DOUBLON DE BOUTON ET TEXTE CLAIR) -->
+        <div class="scroll-indicator">
+            <p>Découvrir notre approche</p>
+            <a href="#piliers" class="scroll-arrow" aria-label="Défiler vers la suite">&#8595;</a>
+        </div>
+    </section>
+
+    <!-- PILIERS D'ACCOMPAGNEMENT (ACCUEIL) -->
+    <section>
+        <h2 class="section-title">Nos Piliers d'Accompagnement</h2>
+        <div class="grid-cards">
+            <div class="card">
+                <h3>1. Neuro-Nutrition & Micro-Nutrition</h3>
+                <p>Nourrir votre cerveau et vos cellules pour optimiser l'énergie, l'humeur et la clarté mentale.</p>
+            </div>
+            <div class="card">
+                <h3>2. Gestion du Stress & Système Nerveux</h3>
+                <p>Apaiser le surmenage, réguler le cortisol et retrouver un sommeil réparateur.</p>
+            </div>
+            <div class="card">
+                <h3>3. Santé Hormonale & Équilibre Féminin</h3>
+                <p>Accompagner les cycles, la périménopause et les déséquilibres endocriniens.</p>
+            </div>
+            <div class="card">
+                <h3>4. Troubles Fonctionnels & Biologie de Terrain</h3>
+                <p>Soutenir la digestion, l'immunité et l'inflammation à la racine.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="#contact" class="cta-btn" style="text-decoration: none; padding: 0.8rem 1.8rem;">Réserver votre bilan initial</a>
+        </div>
+    </section>
+
+    <!-- 2. PAGE À PROPOS -->
+    <section id="apropos">
+        <h2 class="section-title">À Propos</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Mon Parcours : De l'Épuisement à la Vitalité</h3>
+                <p>Mon cheminement vers la naturopathie est né d'une expérience personnelle profonde : la confrontation au surmenage intense et à l'épuisement profond. Face aux limites des réponses classiques, j'ai cherché à comprendre les mécanismes intimes du corps humain, du système nerveux et de la nutrition cellulaire.</p>
+                <p>Aujourd'hui, diplômée et formée à la naturopathie fonctionnelle et à la neuro-nutrition, je mets cette double expertise au service de ceux et celles qui souhaitent reprendre les reines de leur santé.</p>
+                
+                <h3 style="margin-top: 2.5rem;">Ma Philosophie de Pratique</h3>
+                <div class="philosophy-grid">
+                    <div class="philosophy-item">
+                        <h4>Rigueur fonctionnelle</h4>
+                        <p>Une alliance entre la biologie fonctionnelle, la compréhension du vivant et une bienveillance globale.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h4>Individualisée</h4>
+                        <p>Il n'y a pas de solution unique. Chaque programme est conçu sur-mesure pour votre terrain.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h4>Pédagogique</h4>
+                        <p>Vous transmettre les clés de compréhension de votre propre corps pour vous rendre autonome.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2.5rem;">Mes Outils & Méthodes d'Accompagnement</h3>
+                <p><strong>Hygiène de vie intégrative & Ayurveda :</strong> Accompagnement global au changement d'habitudes et à la personnalisation du mode de vie selon votre constitution.</p>
+                <p><strong>Phytothérapie & Gemmothérapie :</strong> Utilisation ciblée des plantes et des macérats de bourgeons pour soutenir l'organisme, la gestion du stress, la digestion et l'inflammation.</p>
+                <p><strong>Neuro-nutrition & Micro-nutrition :</strong> Optimisation des neurotransmetteurs, de la clarté mentale et rééquilibrage cellulaire.</p>
+
+                <h3 style="margin-top: 2.5rem;">Pourquoi Ô Lab'Ôtium ? L'histoire d'un espace de régénération</h3>
+                <p>Ô Lab'Ôtium est né de l'alliance entre deux piliers fondamentaux :</p>
+                <p><strong>Le &lt;&lt; Lab &gt;&gt; :</strong> Le laboratoire d'expérimentation, de rigueur et de compréhension du vivant et du terrain.</p>
+                <p><strong>L'&lt;&lt; Otium &gt;&gt; :</strong> Le temps d'arrêt, la pause sacrée, la sérénité et le soin profond de soi.</p>
+                <p style="margin-top: 1rem; font-style: italic;">Pensé comme un véritable sanctuaire évolutif, Ô Lab'Ôtium a pour vocation d'accompagner votre hygiène de vie sous toutes ses formes - de la naturopathie et la neuro-nutrition aux pratiques de mouvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PAGE ACCOMPAGNEMENTS & SERVICES -->
+    <section id="accompagnements">
+        <h2 class="section-title">Accompagnements & Services</h2>
+        <div class="grid-cards" style="margin-bottom: 3rem;">
+            <div class="card">
+                <h3>1. Neuro-Nutrition & Micro-Nutrition</h3>
+                <p>Optimisation des neurotransmetteurs (dopamine, sérotonine, GABA), lutte contre la fatigue cérébrale et rééquilibrage micronutritionnel (vitamines, minéraux, acides gras).</p>
+            </div>
+            <div class="card">
+                <h3>2. Gestion du Stress & Système Nerveux</h3>
+                <p>Accompagnement du surmenage intense, du stress chronique, de l'anxiété et des troubles du sommeil par des protocoles naturels et ciblés.</p>
+            </div>
+            <div class="card">
+                <h3>3. Santé Hormonale & Équilibre Féminin</h3>
+                <p>Prise en charge personnalisée des troubles du cycle, du syndrome prémenstruel (SPM), du SOPK, de l'endométriose et de la transition vers la ménopause.</p>
+            </div>
+            <div class="card">
+                <h3>4. Troubles Fonctionnels & Santé Intestinale</h3>
+                <p>Restauration du microbiote, accompagnement des désordres digestifs (ballonnements, dysbioses, perméabilité intestinale) et des états inflammatoires.</p>
+            </div>
+        </div>
+
+        <div class="about-content" style="background-color: var(--white); padding: 2rem 3rem;">
+            <h3 style="color: var(--sage-dark); margin-bottom: 1rem;">Modalités des Consultations</h3>
+            <p>📍 <strong>En cabinet :</strong> Savigneux / Montbrison (Loire)</p>
+            <p>💻 <strong>En visioconférence :</strong> Depuis le confort de votre domicile</p>
+            <p>🏠 <strong>À domicile :</strong> Montbrison et communes limitrophes</p>
+        </div>
+    </section>
+
+    <!-- 4. PAGE TARIFS & INFOS PRATIQUES -->
+    <section id="tarifs">
+        <h2 class="section-title">Tarifs & Infos Pratiques</h2>
+        <div class="tarifs-container">
+            <div>
+                <div class="tarif-card">
+                    <h3>Bilan Initial - Naturopathie & Neuro-Nutrition (1h15 à 1h30)</h3>
+                    <p>Anamnèse complète, analyse du terrain et du système nerveux, remise d'un programme d'hygiène vitale personnalisé.</p>
+                </div>
+                <div class="tarif-card">
+                    <h3>Consultation de Suivi (45 min à 1h)</h3>
+                    <p>Ajustements du programme, évaluation des progrès et accompagnement continu.</p>
+                </div>
+            </div>
+            <div>
+                <div class="info-box">
+                    <h3>Remboursement Mutuelle</h3>
+                    <p>La naturopathie n'est pas remboursée par la Sécurité Sociale, mais de nombreuses mutuelles de santé prennent en charge tout ou partie des consultations. Une facture vous sera délivrée à la fin de chaque séance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PAGE CONTACT & RÉSERVATION -->
+    <section id="contact">
+        <h2 class="section-title">Contact & Réservation</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 style="color: var(--sage-dark); font-size: 1.5rem; margin-bottom: 1rem;">Coordonnées</h3>
+                <p>Prenez contact ou réservez votre créneau directement selon vos préférences.</p>
+                <ul>
+                    <li><strong>Cabinet :</strong> Savigneux / Montbrison</li>
+                    <li><strong>Téléphone :</strong> 07 82 94 77 42</li>
+                    <li><strong>E-mail :</strong> magaliplaton07@gmail.com</li>
+                </ul>
+
+                <h3 style="color: var(--sage-dark); font-size: 1.3rem; margin-top: 2rem; margin-bottom: 0.5rem;">Horaires (sur rendez-vous)</h3>
+                <table class="schedule-table">
+                    <tr>
+                        <th>Créneau</th>
+                        <th>Modalité</th>
+                    </tr>
+                    <tr>
+                        <td>Lundi au Vendredi (Soirs : 19h00 & 20h30)</td>
+                        <td>Visioconférence</td>
+                    </tr>
+                    <tr>
+                        <td>Samedi (08h00-12h00 & 14h00-16h00)</td>
+                        <td>Cabinet & Visio</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <h3 style="color: var(--sage-dark); font-size: 1.5rem; margin-bottom: 1rem;">Prise de Rendez-vous en Ligne</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #555;">
+                    Sélectionnez la plateforme de votre choix pour consulter les créneaux disponibles et réserver votre consultation en quelques clics :
+                </p>
+                
+                <!-- BOUTON ZEN AGENDA (PRINCIPAL) -->
+                <div style="background-color: var(--white); border: 2px solid var(--sage-green); padding: 1.5rem; border-radius: 12px; text-align: center; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <p style="font-weight: 600; color: var(--sage-dark); margin-bottom: 0.5rem; font-size: 1.1rem;">📅 Agenda en ligne (Zen Agenda)</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">Réservez votre bilan initial ou séance de suivi en visioconférence ou en cabinet.</p>
+                    <a href="https://www.zenagenda.com/" target="_blank" rel="noopener noreferrer" class="cta-btn" style="text-decoration: none; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.95rem;">
+                        Réserver via Zen Agenda
+                    </a>
+                </div>
+
+                <!-- BOUTON / LIEN RESALIB (ANNUAIRE & RDV) -->
+                <div style="background-color: var(--beige-nude); border: 1px solid var(--beige-card); padding: 1.2rem; border-radius: 12px; text-align: center;">
+                    <p style="font-weight: 600; color: var(--sage-dark); margin-bottom: 0.4rem; font-size: 1rem;">🌿 Retrouvez le cabinet sur Resalib</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.8rem;">Consultez la fiche du cabinet et la carte des soins sur la plateforme Resalib.</p>
+                    <a href="https://www.resalib.fr/" target="_blank" rel="noopener noreferrer" style="color: var(--sage-dark); font-weight: 600; text-decoration: underline; font-size: 0.9rem;">
+                        Voir la vitrine Resalib &rarr;
+                    </a>
+                </div>
+
+                <!-- OPTION SECONDARIE EMAIL / TELEPHONE -->
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <p style="font-size: 0.85rem; color: #777;">
+                        Une question avant de réserver ? <a href="mailto:magaliplaton07@gmail.com?subject=Demande%20d'information%20-%20Ô%20Lab'Ôtium" style="color: var(--sage-green); font-weight: 600;">Envoyez un e-mail au cabinet</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>&copy; 2026 Ô Lab'Ôtium - Tous droits réservés.</p>
+        <p>Naturopathie Fonctionnelle & Neuro-Nutrition | Savigneux & Montbrison (Loire)</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".nav-links a");
+
+            const observerOptions = {
+                root: null,
+                rootMargin: "-20% 0px -70% 0px",
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute("id");
+                        navLinks.forEach((link) => {
+                            link.classList.remove("active");
+                            if (link.getAttribute("href") === `#${id}`) {
+                                link.classList.add("active");
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach((section) => observer.observe(section));
+        });
+    </script>
+
+</body>
+</html>
