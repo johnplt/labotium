@@ -267,28 +267,56 @@
             transition: var(--transition);
         }
 
-        /* ADAPTATION MOBILE : AFFICHAGE SUR PLUSIEURS LIGNES */
+        /* ADAPTATION MOBILE FLUIDE PLEINE LARGEUR */
         @media (max-width: 768px) {
+            /* Header sur 2 lignes bien centré */
+            header {
+                position: relative; /* Repasse en position relative pour ne pas empiéter sur le hero */
+            }
+
             .nav-container {
                 padding: 0.8rem 1rem;
-                flex-direction: column; /* Empile le logo et le menu verticalement */
+                flex-direction: column;
                 gap: 0.8rem;
                 align-items: center;
             }
 
-            .logo-area {
-                margin-bottom: 0.2rem;
-            }
-
             .nav-links {
                 display: flex;
-                flex-wrap: wrap; /* Permet aux liens de passer à la ligne suivante si besoin */
+                flex-wrap: wrap;
                 justify-content: center;
-                gap: 0.6rem 1rem; /* Espacement vertical et horizontal entre les liens */
+                gap: 0.5rem 0.8rem;
             }
 
             .nav-links a {
                 font-size: 0.85rem;
+            }
+
+            /* Réajustement des sections pour occuper toute la largeur sur mobile */
+            .hero {
+                padding: 3rem 1.2rem 4rem; /* Moins de marge en haut car le header est au-dessus */
+            }
+
+            .hero h1 {
+                font-size: 2rem; /* Taille de titre adaptée */
+            }
+
+            .hero p.slogan {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 3.5rem 1rem; /* Marges latérales réduites sur mobile */
+                width: 100%;
+            }
+
+            .about-content, .contact-grid {
+                padding: 1.5rem 1rem; /* On tire parti de toute la largeur des cartes */
+            }
+
+            .contact-grid, .tarifs-container {
+                grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+                gap: 2rem;
             }
         }
 
