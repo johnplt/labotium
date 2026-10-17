@@ -37,6 +37,8 @@
             background-color: var(--beige-nude);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         h1, h2, h3, .brand-title {
@@ -102,6 +104,13 @@
             color: var(--sage-green);
         }
 
+        .nav-links a.active {
+            color: var(--sage-green);
+            font-weight: 600;
+            border-bottom: 2px solid var(--old-rose);
+            padding-bottom: 4px;
+        }
+
         .cta-btn {
             background-color: var(--sage-green);
             color: var(--white) !important;
@@ -143,6 +152,36 @@
             margin: 0 auto 2.5rem;
             font-size: 1.1rem;
             color: #4A5550;
+        }
+
+        /* INDICATEUR DE DÉFILEMENT (FLECHE) */
+        .scroll-indicator {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.85;
+        }
+
+        .scroll-indicator p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--sage-dark);
+        }
+
+        .scroll-arrow {
+            font-size: 1.5rem;
+            color: var(--sage-green);
+            text-decoration: none;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
 
         /* SECTIONS GENERAL */
@@ -246,80 +285,6 @@
             gap: 2rem;
         }
 
-        /* BOUTON BURGER (CACHE SUR PC) */
-        .burger-btn {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 28px;
-            height: 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 1100;
-        }
-
-        .burger-btn span {
-            width: 100%;
-            height: 3px;
-            background-color: var(--sage-dark);
-            border-radius: 2px;
-            transition: var(--transition);
-        }
-
-        /* ADAPTATION MOBILE FLUIDE PLEINE LARGEUR */
-        @media (max-width: 768px) {
-            /* Header sur 2 lignes bien centré */
-            header {
-                position: relative; /* Repasse en position relative pour ne pas empiéter sur le hero */
-            }
-
-            .nav-container {
-                padding: 0.8rem 1rem;
-                flex-direction: column;
-                gap: 0.8rem;
-                align-items: center;
-            }
-
-            .nav-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.5rem 0.8rem;
-            }
-
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            /* Réajustement des sections pour occuper toute la largeur sur mobile */
-            .hero {
-                padding: 3rem 1.2rem 4rem; /* Moins de marge en haut car le header est au-dessus */
-            }
-
-            .hero h1 {
-                font-size: 2rem; /* Taille de titre adaptée */
-            }
-
-            .hero p.slogan {
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 3.5rem 1rem; /* Marges latérales réduites sur mobile */
-                width: 100%;
-            }
-
-            .about-content, .contact-grid {
-                padding: 1.5rem 1rem; /* On tire parti de toute la largeur des cartes */
-            }
-
-            .contact-grid, .tarifs-container {
-                grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-                gap: 2rem;
-            }
-        }
-
         .tarif-card {
             background-color: var(--white);
             padding: 2rem;
@@ -402,42 +367,58 @@
             opacity: 0.8;
             margin-bottom: 0.5rem;
         }
-        /* STYLE DU LIEN DE MENU ACTIF */
-        .nav-links a.active {
-            color: var(--sage-green);
-            font-weight: 600;
-            border-bottom: 2px solid var(--old-rose);
-            padding-bottom: 4px;
-        }
 
-        /* INDICATEUR DE DÉFILEMENT (FLECHE) */
-        .scroll-indicator {
-            margin-top: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0.85;
-        }
+        /* ========================================================== */
+        /* ADAPTATION MOBILE (TOUJOURS EN BAS DU FICHIER CSS)        */
+        /* ========================================================== */
+        @media (max-width: 768px) {
+            header {
+                position: relative;
+            }
 
-        .scroll-indicator p {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--sage-dark);
-        }
+            .nav-container {
+                padding: 0.8rem 1rem;
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: center;
+            }
 
-        .scroll-arrow {
-            font-size: 1.5rem;
-            color: var(--sage-green);
-            text-decoration: none;
-            animation: bounce 2s infinite;
-        }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem 0.8rem;
+            }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-8px); }
-            60% { transform: translateY(-4px); }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 3.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p.slogan {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 2.5rem 1rem;
+                width: 100%;
+            }
+
+            .about-content, .contact-grid {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-grid, .tarifs-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
