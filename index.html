@@ -246,12 +246,53 @@
             gap: 2rem;
         }
 
+        /* BOUTON BURGER (CACHE SUR PC) */
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .burger-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--sage-dark);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ADAPTATION MOBILE */
         @media (max-width: 768px) {
-            .tarifs-container {
-                grid-template-columns: 1fr;
+            .burger-btn {
+                display: flex; /* Afficher le bouton burger sur mobile */
             }
+
             .nav-links {
-                display: none; /* Simplifié pour mobile, peut être enrichi d'un menu burger */
+                position: fixed;
+                top: 0;
+                right: -100%; /* Caché hors de l'écran par défaut */
+                width: 75%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--beige-nude);
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem;
+                transition: right 0.4s ease;
+            }
+
+            /* Quand le menu est ouvert */
+            .nav-links.active {
+                right: 0;
             }
         }
 
@@ -378,14 +419,23 @@
 </head>
 <body>
 
-    <!-- EN-TÊTE -->
+    <!-- EN-TÊTE AVEC MENU MOBILE BURGER -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo-area">
                 <img src="logo.png" alt="Logo Ô Lab'Ôtium" class="logo-img" onerror="this.style.display='none'">
                 <span class="brand-name">Ô Lab'Ôtium</span>
             </a>
-            <ul class="nav-links">
+
+            <!-- BOUTON BURGER (VISIBLE SUR MOBILE) -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- LIENS DU MENU -->
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À Propos</a></li>
                 <li><a href="#accompagnements">Accompagnements</a></li>
@@ -599,20 +649,37 @@
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll("section[id]");
-            const navLinks = document.querySelectorAll(".nav-links a");
+            // 1. Gestion du Menu Mobile Burger
+            const burgerBtn = document.getElementById("burgerBtn");
+            const navLinks = document.getElementById("navLinks");
+            const navItems = document.querySelectorAll(".nav-links a");
 
-            const observerOptions = {
-                root: null,
-                rootMargin: "-20% 0px -70% 0px",
-                threshold: 0
+            if (burgerBtn && navLinks) {
+                burgerBtn.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                });
+
+                // Fermer le menu mobile quand l'utilisateur clique sur un lien
+                navItems.forEach(item => {
+                    item.addEventListener("click", () => {
+                        navLinks.classList.remove("active");
+                    });
+                });
+            }
+
+            // 2. Highlighting dynamique des sections au scroll
+            const sections = document.querySelectorAll("section[id]");
+            const observerOptions = { 
+                root: null, 
+                rootMargin: "-20% 0px -70% 0px", 
+                threshold: 0 
             };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute("id");
-                        navLinks.forEach((link) => {
+                        navItems.forEach((link) => {
                             link.classList.remove("active");
                             if (link.getAttribute("href") === `#${id}`) {
                                 link.classList.add("active");
@@ -625,6 +692,6 @@
             sections.forEach((section) => observer.observe(section));
         });
     </script>
-
+    
 </body>
 </html>
